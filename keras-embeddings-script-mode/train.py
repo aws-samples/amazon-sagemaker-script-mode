@@ -2,13 +2,7 @@ import argparse
 import os
 import sys
 import numpy as np
-from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
-from keras.utils import to_categorical
-from keras.layers import Dense, Input, GlobalMaxPooling1D
-from keras.layers import Conv1D, MaxPooling1D, Embedding
-from keras.models import Model
-from keras.initializers import Constant
+import tensorflow as tf
 
 
 def parse_args():
@@ -70,11 +64,11 @@ def get_model(embedding_dir, NUM_WORDS, WORD_INDEX_LENGTH, LABELS_INDEX_LENGTH, 
     
     # load pre-trained word embeddings into an Embedding layer
     # note that we set trainable = False so as to keep the embeddings fixed
-    embedding_layer = Embedding(NUM_WORDS,
-                                EMBEDDING_DIM,
-                                embeddings_initializer=Constant(embedding_matrix),
-                                input_length=MAX_SEQUENCE_LENGTH,
-                                trainable=False)
+    embedding_layer = tf.keras.layers.Embedding(NUM_WORDS,
+                                                EMBEDDING_DIM,
+                                                embeddings_initializer=tf.keras.initializers.Constant(embedding_matrix),
+                                                input_length=MAX_SEQUENCE_LENGTH,
+                                                trainable=False)
     '''
     
     # initialize embedding layer from scratch and learn its weights
@@ -84,18 +78,18 @@ def get_model(embedding_dir, NUM_WORDS, WORD_INDEX_LENGTH, LABELS_INDEX_LENGTH, 
     '''
 
     # train a 1D convnet with global maxpooling
-    sequence_input = Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
+    sequence_input = tf.keras.Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
     embedded_sequences = embedding_layer(sequence_input)
-    x = Conv1D(128, 5, activation='relu')(embedded_sequences)
-    x = MaxPooling1D(5)(x)
-    x = Conv1D(128, 5, activation='relu')(x)
-    x = MaxPooling1D(5)(x)
-    x = Conv1D(128, 5, activation='relu')(x)
-    x = GlobalMaxPooling1D()(x)
-    x = Dense(128, activation='relu')(x)
-    preds = Dense(LABELS_INDEX_LENGTH, activation='softmax')(x)
+    x = tf.keras.layers.Conv1D(128, 5, activation='relu')(embedded_sequences)
+    x = tf.keras.layers.MaxPooling1D(5)(x)
+    x = tf.keras.layers.Conv1D(128, 5, activation='relu')(x)
+    x = tf.keras.layers.MaxPooling1D(5)(x)
+    x = tf.keras.layers.Conv1D(128, 5, activation='relu')(x)
+    x = tf.keras.layers.GlobalMaxPooling1D()(x)
+    x = tf.keras.layers.Dense(128, activation='relu')(x)
+    preds = tf.keras.layers.Dense(LABELS_INDEX_LENGTH, activation='softmax')(x)
     
-    return Model(sequence_input, preds)
+    return tf.keras.Model(sequence_input, preds)
     
 
 if __name__ == "__main__":
@@ -120,4 +114,7 @@ if __name__ == "__main__":
               batch_size=args.batch_size,
               epochs=args.epochs,
               validation_data=(x_val, y_val)) 
+    
+    # create a TensorFlow SavedModel for deployment to a SageMaker endpoint with TensorFlow Serving
+    tf.contrib.saved_model.save_keras_model(model, args.model_dir)
 
