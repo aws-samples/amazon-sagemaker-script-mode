@@ -15,14 +15,13 @@ def get_model(embedding_dir, NUM_WORDS, WORD_INDEX_LENGTH, LABELS_INDEX_LENGTH, 
     
     embedding_matrix = get_embeddings(embedding_dir)
     
-    # load pre-trained word embeddings into an Embedding layer
-    # note that we set trainable = False so as to keep the embeddings fixed
+    # trainable = False to keep the embeddings frozen
     embedding_layer = tf.keras.layers.Embedding(NUM_WORDS,
                                                 EMBEDDING_DIM,
                                                 embeddings_initializer=tf.keras.initializers.Constant(embedding_matrix),
                                                 input_length=MAX_SEQUENCE_LENGTH,
                                                 trainable=False)
-    # train a 1D convnet with global maxpooling
+
     sequence_input = tf.keras.Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
     embedded_sequences = embedding_layer(sequence_input)
     x = tf.keras.layers.Conv1D(128, 5, activation='relu')(embedded_sequences)
@@ -36,4 +35,3 @@ def get_model(embedding_dir, NUM_WORDS, WORD_INDEX_LENGTH, LABELS_INDEX_LENGTH, 
     
     return tf.keras.Model(sequence_input, preds)
    
-    
