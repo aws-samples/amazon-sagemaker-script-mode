@@ -20,6 +20,7 @@ def parse_args():
     # hyperparameters sent by the client are passed as command-line arguments to the script
     parser.add_argument('--epochs', type=int, default=1)
     parser.add_argument('--batch_size', type=int, default=64)
+    parser.add_argument('--learning_rate', type=float, default=0.1)
     
     # data directories
     parser.add_argument('--train', type=str, default=os.environ.get('SM_CHANNEL_TRAIN'))
@@ -60,12 +61,13 @@ if __name__ == "__main__":
     print(device)
     batch_size = args.batch_size
     epochs = args.epochs
-    print('batch_size = {}, epochs = {}'.format(batch_size, epochs))
+    learning_rate = args.learning_rate
+    print('batch_size = {}, epochs = {}, learning rate = {}'.format(batch_size, epochs, learning_rate))
 
     with tf.device(device):
         
         model = get_model()
-        optimizer = tf.train.GradientDescentOptimizer(0.1)
+        optimizer = tf.train.GradientDescentOptimizer(learning_rate)
         model.compile(optimizer=optimizer, loss='mse')    
         model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs,
                   validation_data=(x_test, y_test))
