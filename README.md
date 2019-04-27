@@ -10,6 +10,9 @@ Currently this repository has the following resources:
 
 - [**Keras Text Classification with Word Embeddings**](keras-embeddings-script-mode): In this example, Keras is used with Script Mode for a text classification task. An important aspect of the example is showing how to load preexisting word embeddings such as GloVe in Script Mode. **PREREQUISITES:**  (1) Use a GPU-based (P3 or P2) SageMaker notebook instance, and (2) be sure to upload all files in keras-embeddings-script-mode (including subdirectory code) to the directory where you will run the related Jupyter notebook. 
 
+- [**TensorFlow Distributed Training and Inference**](tf-horovod-inference):  Script Mode with TensorFlow is used in a demonstration of distributed training and distributed inference for a computer vision task. **PREREQUISITES:**  Be sure to upload all files in tf-horovod-inference to the directory where you will run the related Jupyter notebook.  
+
+
 ## License
 
 The contents of this repository are licensed under the Apache 2.0 License except where otherwise noted. 
