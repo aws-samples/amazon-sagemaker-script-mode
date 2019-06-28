@@ -23,13 +23,13 @@ os.system('cp requirements.txt /opt/ml/model/code')
 
 
 class CustomTensorBoardCallback(TensorBoard):
-    
+
     def on_batch_end(self, batch, logs=None):
         pass
 
 
 def get_filenames(channel_name, channel):
-    
+
     if channel_name in ['train', 'validation', 'eval']:
         return [os.path.join(channel, channel_name + '.tfrecords')]
     else:
@@ -37,7 +37,7 @@ def get_filenames(channel_name, channel):
 
 
 def _input(epochs, batch_size, channel, channel_name):
-    
+
     mode = args.data_config[channel_name]['TrainingInputMode']
     filenames = get_filenames(channel_name, channel)
     # Repeat infinitely.
@@ -66,7 +66,7 @@ def _input(epochs, batch_size, channel, channel_name):
     dataset = dataset.batch(batch_size, drop_remainder=True)
     iterator = dataset.make_one_shot_iterator()
     image_batch, label_batch = iterator.get_next()
-    
+
     return image_batch, label_batch
 
 
@@ -80,7 +80,7 @@ def _train_preprocess_fn(image):
 
     # Randomly flip the image horizontally.
     image = tf.image.random_flip_left_right(image)
-    
+
     return image
 
 
@@ -120,7 +120,7 @@ def main(args):
     else:
         tensorboard_dir = args.tensorboard_dir
     logging.info("Writing TensorBoard logs to {}".format(tensorboard_dir))
-    
+
     if 'sagemaker_mpi_enabled' in args.fw_params:
         if args.fw_params['sagemaker_mpi_enabled']:
             import horovod.tensorflow.keras as hvd
@@ -156,22 +156,22 @@ def main(args):
     else:
         callbacks.append(ModelCheckpoint(args.output_dir + '/checkpoint-{epoch}.h5'))
         callbacks.append(CustomTensorBoardCallback(log_dir=tensorboard_dir))
-        
+
     logging.info("Starting training")
     size = 1
     if mpi:
         size = hvd.size()
-        
-    model.fit(x=train_dataset[0], 
+
+    model.fit(x=train_dataset[0],
               y=train_dataset[1],
               steps_per_epoch=(num_examples_per_epoch('train') // args.batch_size) // size,
-              epochs=args.epochs, 
+              epochs=args.epochs,
               validation_data=validation_dataset,
               validation_steps=(num_examples_per_epoch('validation') // args.batch_size) // size,
               callbacks=callbacks)
 
-    score = model.evaluate(eval_dataset[0], 
-                           eval_dataset[1], 
+    score = model.evaluate(eval_dataset[0],
+                           eval_dataset[1],
                            steps=num_examples_per_epoch('eval') // args.batch_size,
                            verbose=0)
 
@@ -200,7 +200,7 @@ def num_examples_per_epoch(subset='train'):
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
-    
+
     parser.add_argument('--train',type=str,required=False,default=os.environ.get('SM_CHANNEL_TRAIN'))
     parser.add_argument('--validation',type=str,required=False,default=os.environ.get('SM_CHANNEL_VALIDATION'))
     parser.add_argument('--eval',type=str,required=False,default=os.environ.get('SM_CHANNEL_EVAL'))
@@ -216,7 +216,7 @@ if __name__ == '__main__':
     parser.add_argument('--fw-params',type=json.loads,default=os.environ.get('SM_FRAMEWORK_PARAMS'))
     parser.add_argument('--optimizer',type=str,default='adam')
     parser.add_argument('--momentum',type=float,default='0.9')
-    
+
     args = parser.parse_args()
 
     main(args)

@@ -62,6 +62,6 @@ def get_model(learning_rate, weight_decay, optimizer, momentum, mpi=False, hvd=F
     model.compile(loss='categorical_crossentropy',
                   optimizer=opt,
                   metrics=['accuracy'])
-    
+
     return model
 
