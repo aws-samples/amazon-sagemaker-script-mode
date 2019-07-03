@@ -63,7 +63,7 @@ def main(args):
 
     logging.info("Starting training")
 
-    model.fit(x=train_dataset[0], 
+    history = model.fit(x=train_dataset[0], 
               y=train_dataset[1],
               steps_per_epoch=(num_examples_per_epoch('train') // args.batch_size) // size,
               epochs=args.epochs, 
@@ -78,8 +78,11 @@ def main(args):
     logging.info('Test loss:{}'.format(score[0]))
     logging.info('Test accuracy:{}'.format(score[1]))
 
-    # PS: Save model only on worker 0
+    # PS: Save model and history only on worker 0
     if args.current_host == args.hosts[0]:
+        history_json = json.dumps(history.history)
+        with open(args.model_dir + "/ps_history.p", "w") as f:
+            f.write(history_json)
         save_model(model, args.model_dir)
 
 
