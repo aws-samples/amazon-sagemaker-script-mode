@@ -75,10 +75,10 @@ def main(args):
         callbacks.append(hvd.callbacks.LearningRateWarmupCallback(warmup_epochs=5, verbose=1))
         callbacks.append(tf.keras.callbacks.ReduceLROnPlateau(patience=10, verbose=1))
         if hvd.rank() == 0:
-            callbacks.append(ModelCheckpoint(args.output_dir + '/checkpoint-{epoch}.h5'))
+            callbacks.append(ModelCheckpoint(args.output_data_dir + '/checkpoint-{epoch}.h5'))
             callbacks.append(CustomTensorBoardCallback(log_dir=tensorboard_dir))
     else:
-        callbacks.append(ModelCheckpoint(args.output_dir + '/checkpoint-{epoch}.h5'))
+        callbacks.append(ModelCheckpoint(args.output_data_dir + '/checkpoint-{epoch}.h5'))
         callbacks.append(CustomTensorBoardCallback(log_dir=tensorboard_dir))
         
     logging.info("Starting training")
@@ -130,6 +130,7 @@ if __name__ == '__main__':
     parser.add_argument('--eval',type=str,required=False,default=os.environ.get('SM_CHANNEL_EVAL'))
     parser.add_argument('--model_dir',type=str,required=True,help='The directory where the model will be stored.')
     parser.add_argument('--model_output_dir',type=str,default=os.environ.get('SM_MODEL_DIR'))
+    parser.add_argument('--output_data_dir',type=str,default=os.environ.get('SM_OUTPUT_DATA_DIR'))
     parser.add_argument('--output-dir',type=str,default=os.environ.get('SM_OUTPUT_DIR'))
     parser.add_argument('--tensorboard-dir',type=str,default=os.environ.get('SM_MODULE_DIR'))
     parser.add_argument('--weight-decay',type=float,default=2e-4,help='Weight decay for convolutions.')
