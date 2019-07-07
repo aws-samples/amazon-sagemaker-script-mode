@@ -1,6 +1,8 @@
 import argparse
+import codecs
 import json
 import logging
+import numpy as np
 import os
 import re
 
@@ -26,6 +28,21 @@ class CustomTensorBoardCallback(TensorBoard):
     
     def on_batch_end(self, batch, logs=None):
         pass
+
+    
+def save_history(path, history):
+
+    history_for_json = {}
+    # transform float values that aren't json-serializable
+    for key in list(history.history.keys()):
+        if type(history.history[key]) == np.ndarray:
+            history_for_json[key] == history.history[key].tolist()
+        elif type(history.history[key]) == list:
+           if  type(history.history[key][0]) == np.float32 or type(history.history[key][0]) == np.float64:
+               history_for_json[key] = list(map(float, history.history[key]))
+
+    with codecs.open(path, 'w', encoding='utf-8') as f:
+        json.dump(history_for_json, f, separators=(',', ':'), sort_keys=True, indent=4) 
 
 
 def save_model(model, output):
@@ -86,7 +103,7 @@ def main(args):
     if mpi:
         size = hvd.size()
         
-    model.fit(x=train_dataset[0], 
+    history = model.fit(x=train_dataset[0], 
               y=train_dataset[1],
               steps_per_epoch=(num_examples_per_epoch('train') // args.batch_size) // size,
               epochs=args.epochs, 
@@ -102,11 +119,13 @@ def main(args):
     logging.info('Test loss:{}'.format(score[0]))
     logging.info('Test accuracy:{}'.format(score[1]))
 
-    # Horovod: Save model only on worker 0 (i.e. master)
+    # Horovod: Save model and history only on worker 0 (i.e. master)
     if mpi:
         if hvd.rank() == 0:
+            save_history(args.model_dir + "/hvd_history.p", history)
             return save_model(model, args.model_output_dir)
     else:
+        save_history(args.model_dir + "/hvd_history.p", history)
         return save_model(model, args.model_output_dir)
 
 

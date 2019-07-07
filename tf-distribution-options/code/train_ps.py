@@ -1,6 +1,8 @@
 import argparse
+import codecs
 import json
 import logging
+import numpy as np
 import os
 import re
 
@@ -25,6 +27,21 @@ os.system('cp requirements.txt /opt/ml/model/code')
 class CustomTensorBoardCallback(TensorBoard):
     def on_batch_end(self, batch, logs=None):
         pass
+    
+    
+def save_history(path, history):
+
+    history_for_json = {}
+    # transform float values that aren't json-serializable
+    for key in list(history.history.keys()):
+        if type(history.history[key]) == np.ndarray:
+            history_for_json[key] == history.history[key].tolist()
+        elif type(history.history[key]) == list:
+           if  type(history.history[key][0]) == np.float32 or type(history.history[key][0]) == np.float64:
+               history_for_json[key] = list(map(float, history.history[key]))
+
+    with codecs.open(path, 'w', encoding='utf-8') as f:
+        json.dump(history_for_json, f, separators=(',', ':'), sort_keys=True, indent=4) 
 
 
 def save_model(model, output):
@@ -80,9 +97,7 @@ def main(args):
 
     # PS: Save model and history only on worker 0
     if args.current_host == args.hosts[0]:
-        history_json = json.dumps(history.history)
-        with open(args.model_dir + "/ps_history.p", "w") as f:
-            f.write(history_json)
+        save_history(args.model_dir + "/ps_history.p", history)
         save_model(model, args.model_dir)
 
 
