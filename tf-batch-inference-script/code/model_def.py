@@ -8,7 +8,7 @@ WIDTH = 32
 DEPTH = 3
 NUM_CLASSES = 10
 
-def get_model(learning_rate, weight_decay, optimizer, momentum, mpi=False, hvd=False):
+def get_model(learning_rate, weight_decay, optimizer, momentum, size, mpi=False, hvd=False):
 
     model = Sequential()
     model.add(Conv2D(32, (3, 3), padding='same', input_shape=(HEIGHT, WIDTH, DEPTH)))
@@ -45,7 +45,6 @@ def get_model(learning_rate, weight_decay, optimizer, momentum, mpi=False, hvd=F
     model.add(Dense(NUM_CLASSES))
     model.add(Activation('softmax'))
 
-    size = 1
     if mpi:
         size = hvd.size()
 
@@ -62,6 +61,6 @@ def get_model(learning_rate, weight_decay, optimizer, momentum, mpi=False, hvd=F
     model.compile(loss='categorical_crossentropy',
                   optimizer=opt,
                   metrics=['accuracy'])
-
+    
     return model
 
