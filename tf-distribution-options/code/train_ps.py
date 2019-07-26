@@ -47,9 +47,8 @@ def save_history(path, history):
 def save_model(model, output):
 
     # create a TensorFlow SavedModel for deployment to a SageMaker endpoint with TensorFlow Serving
-    tf.contrib.saved_model.save_keras_model(model, args.model_dir)
+    tf.contrib.saved_model.save_keras_model(model, output)
     logging.info("Model successfully saved at: {}".format(output))
-    return
 
 
 def main(args):
