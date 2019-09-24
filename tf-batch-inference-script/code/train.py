@@ -19,7 +19,7 @@ tf.logging.set_verbosity(tf.logging.ERROR)
 
 
 #  Copy inference pre/post-processing script so it will be included in the model package
-os.system('mkdir /opt/ml/model/code')
+os.system('mkdir -p /opt/ml/model/code')
 os.system('cp inference.py /opt/ml/model/code')
 os.system('cp requirements.txt /opt/ml/model/code')
 
