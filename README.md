@@ -4,7 +4,7 @@ This repository contains examples and related resources regarding Amazon SageMak
 
 Currently this repository has the following resources:
 
-- [**TensorFlow 2 Complete Workflow**](tf-2-complete-workflow):  This example shows a complete workflow for TensorFlow 2 with an emphasis on prototyping.  For example, Local Mode training and Local Mode endpoints are demonstrated for prototyping training and inference code, respectively.  Additionally, Automatic Model Tuning is used to automate the hyperparameter tuning process. **PREREQUISITES:**  From the *tf-2-complete-workflow* directory, upload ONLY the Jupyter notebook `tf-2-complete-workflow.ipynb`.  
+- [**TensorFlow 2 Workflow**](tf-2-workflow):  This example shows a relatively complete workflow for TensorFlow 2 with an emphasis on prototyping.  For example, Local Mode training and Local Mode endpoints are demonstrated for prototyping training and inference code, respectively.  Additionally, Automatic Model Tuning is used to automate the hyperparameter tuning process. **PREREQUISITES:**  From the *tf-2-workflow* directory, upload ONLY the Jupyter notebook `tf-2-workflow.ipynb`.  
 
 - [**TensorFlow Sentiment Analysis**](tf-sentiment-script-mode):  Script Mode is used with TensorFlow's tf.keras implementation of the Keras API for a sentiment analysis task. In addition to demonstrating Local Mode training for testing your code, this example also shows usage of SageMaker Batch Transform for asynchronous, large scale inference. **PREREQUISITES:**  From the *tf-sentiment-script-mode* directory, upload ONLY the Jupyter notebook `sentiment-analysis.ipynb`.  
 
@@ -16,7 +16,7 @@ Currently this repository has the following resources:
 
 - [**TensorFlow with Horovod & Inference Pipeline**](tf-horovod-inference-pipeline):  Script Mode with TensorFlow is used for a computer vision task, in a demonstration of Horovod distributed training and doing batch inference in conjunction with an Inference Pipeline for transforming image data before inputting it to the model container. This is an alternative to the previous example, which uses a preprocessing script with the Amazon SageMaker TensorFlow Serving Container rather than an Inference Pipeline. **PREREQUISITES:**  be sure to upload all files in the *tf-horovod-inference-pipeline* directory (including the subdirectory code and files) to the directory where you will run the related Jupyter notebook.  
 
-- [**TensorFlow Eager Execution**](tf-eager-script-mode):  NOTE:  this example has been superseded by the **TensorFlow 2 Complete Workflow** example above.  This example shows how to use Script Mode with Eager Execution mode in TensorFlow 1.x, a more intuitive and dynamic alternative to the original graph mode of TensorFlow.  It is the default mode of TensorFlow 2.  Local Mode and Automatic Model Tuning also are demonstrated. **PREREQUISITES:**  From the *tf-eager-script-mode* directory, upload ONLY the Jupyter notebook `tf-boston-housing.ipynb`.  
+- [**TensorFlow Eager Execution**](tf-eager-script-mode):  NOTE:  this example has been superseded by the **TensorFlow 2 Workflow** example above.  This example shows how to use Script Mode with Eager Execution mode in TensorFlow 1.x, a more intuitive and dynamic alternative to the original graph mode of TensorFlow.  It is the default mode of TensorFlow 2.  Local Mode and Automatic Model Tuning also are demonstrated. **PREREQUISITES:**  From the *tf-eager-script-mode* directory, upload ONLY the Jupyter notebook `tf-boston-housing.ipynb`.  
 
 ## License
 
