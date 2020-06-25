@@ -26,6 +26,13 @@ Currently this repository has the following resources:
   - [**R in SageMaker Processing**](r-in-sagemaker-processing): In this example, R is used to perform some operations on a dataset and generate a plot within SageMaker Processing.  The job results including the plot image are retrieved and displayed, demonstrating how R can be easily used within a SageMaker workflow. **PREREQUISITES:**  From the *r-in-sagemaker-processing* directory, upload the Jupyter notebook `r-in-sagemaker_processing.ipynb`.
   
 
+
+- **Miscellaneous resources:**  
+
+  - [**K-means clustering**](k-means-clustering): Most of the samples in this repository involve supervised learning tasks in Amazon SageMaker Script Mode.  For this example, by contrast, we'll undertake an unsupervised learning task, and do so with the Amazon SageMaker K-means built-in algorithm rather than Script Mode.  **PREREQUISITES:**  From the *k-means-clustering* directory, upload the Jupyter notebook `k-means-clustering.ipynb`.
+  
+
+
 ## License
 
 The contents of this repository are licensed under the Apache 2.0 License except where otherwise noted. 
