@@ -21,18 +21,15 @@ Currently this repository has the following resources:
   - [**TensorFlow Eager Execution**](tf-eager-script-mode):  NOTE:  This example has been superseded by the **TensorFlow 2 Workflow** example above.  This example shows how to use Script Mode with Eager Execution mode in TensorFlow 1.x, a more intuitive and dynamic alternative to the original graph mode of TensorFlow.  It is the default mode of TensorFlow 2.  Local Mode and Automatic Model Tuning also are demonstrated. **PREREQUISITES:**  From the *tf-eager-script-mode* directory, upload ONLY the Jupyter notebook `tf-boston-housing.ipynb`.  
 
 
-- **R resources:**  
-
-  - [**R in SageMaker Processing**](r-in-sagemaker-processing): In this example, R is used to perform some operations on a dataset and generate a plot within SageMaker Processing.  The job results including the plot image are retrieved and displayed, demonstrating how R can be easily used within a SageMaker workflow. **PREREQUISITES:**  From the *r-in-sagemaker-processing* directory, upload the Jupyter notebook `r-in-sagemaker_processing.ipynb`.
-  
-
-
 - **Miscellaneous resources:**  
 
   - [**K-means clustering**](k-means-clustering): Most of the samples in this repository involve supervised learning tasks in Amazon SageMaker Script Mode.  For this example, by contrast, we'll undertake an unsupervised learning task, and do so with the Amazon SageMaker K-means built-in algorithm rather than Script Mode.  **PREREQUISITES:**  From the *k-means-clustering* directory, upload the Jupyter notebook `k-means-clustering.ipynb`.
   
   - [**lightGBM BYO**](lightgbm-byo): In this repository, most samples use Amazon SageMaker prebuilt framework containers for TensorFlow and other frameworks.  For this example, however, we'll show how to BYO container similar to a prebuilt SageMaker framework container, using lightGBM, a popular gradient boosting framework.  **PREREQUISITES:**  From the *lightgbm-byo* directory, upload the Jupyter notebook `lightgbm-byo.ipynb`.
   
+  - [**R in SageMaker Processing**](r-in-sagemaker-processing): In this example, R is used to perform some operations on a dataset and generate a plot within SageMaker Processing.  The job results including the plot image are retrieved and displayed, demonstrating how R can be easily used within a SageMaker workflow. **PREREQUISITES:**  From the *r-in-sagemaker-processing* directory, upload the Jupyter notebook `r-in-sagemaker_processing.ipynb`.
+  
+
 
 
 ## License
