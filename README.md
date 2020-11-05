@@ -31,7 +31,6 @@ Currently this repository has the following resources:
 
   - [**Deploy Pretrained Models**](deploy-pretrained-model):  SageMaker's prebuilt PyTorch container is used to demonstrate how you can quickly take a pretrained or locally trained model and deploy them as SageMaker hosted API endpoints. There are examples for both OpenAI's GPT-2 and BERT. **PREREQUISITES:**  From the *deploy-pretrained-model* directory, upload the entire BERT or GPT2 folder's contents, depending on which model you select. Run either `Deploy_BERT.pynb` or `Deploy_GPT2.ipynb`.  
 
-
 ## License
 
 The contents of this repository are licensed under the Apache 2.0 License except where otherwise noted.
