@@ -2,13 +2,13 @@
 
 This repository contains examples and related resources regarding Amazon SageMaker Script Mode and SageMaker Processing. With Script Mode, you can use training scripts similar to those you would use outside SageMaker with SageMaker's prebuilt containers for various frameworks such TensorFlow, PyTorch, and Apache MXNet.  Similarly, in SageMaker Processing, you can supply ordinary data preprocessing scripts for almost any language or technology you wish to use, such as the R programming language.  
 
-Currently this repository has the following resources:
+Currently this repository has resources for **TensorFlow**, **Bring Your Own** (BYO models and for a Script Mode-style experience with your own containers), and **Miscellaneous** (Script Mode-style experience for SageMaker Processing etc.).
 
 - **TensorFlow resources:**  
 
   - [**TensorFlow 2 Workflow**](tf-2-workflow):  This example shows a complete workflow for TensorFlow 2.  To begin, SageMaker Processing is used to transform the dataset.  Next, Local Mode training and Local Mode endpoints are demonstrated for prototyping training and inference code, respectively.  Automatic Model Tuning is used to automate the hyperparameter tuning process.  Additionally, the AWS Step Functions Data Science SDK is used to automate the project workflow for production-ready environments outside notebooks.  **PREREQUISITES:**  From the *tf-2-workflow* directory, upload ONLY the Jupyter notebook `tf-2-workflow.ipynb`.  
 
-  - [**TensorFlow 2 Sentiment Analysis**](tf-sentiment-script-mode):  SageMaker's prebuilt TensorFlow 2 container is used in this example to train a custom sentiment analysis model. In addition to demonstrating Local Mode training for prototyping your code, this example also shows distributed hosted training in SageMaker with a multi-GPU inance, and usage of SageMaker Batch Transform for asynchronous, large scale inference. **PREREQUISITES:**  From the *tf-sentiment-script-mode* directory, upload ONLY the Jupyter notebook `sentiment-analysis.ipynb`.  
+  - [**TensorFlow 2 Sentiment Analysis**](tf-sentiment-script-mode):  SageMaker's prebuilt TensorFlow 2 container is used in this example to train a custom sentiment analysis model. Particular attention is paid to doing distributed hosted training in SageMaker with a multi-GPU instance, and SageMaker Batch Transform for asynchronous, large scale inference. **PREREQUISITES:**  From the *tf-sentiment-script-mode* directory, upload ONLY the Jupyter notebook `sentiment-analysis.ipynb`.  
 
   - [**TensorFlow Distributed Training Options**](tf-distribution-options): This example demonstrates two different distributed training options in SageMaker's Script Mode:  (1) parameter servers, and (2) Horovod. **PREREQUISITES:**  From the *tf-distribution-options* directory, upload ONLY the Jupyter notebook `tf-distributed-training.ipynb`.
 
@@ -21,16 +21,20 @@ Currently this repository has the following resources:
   - [**TensorFlow Eager Execution**](tf-eager-script-mode):  NOTE:  This example has been superseded by the **TensorFlow 2 Workflow** example above.  This example shows how to use Script Mode with Eager Execution mode in TensorFlow 1.x, a more intuitive and dynamic alternative to the original graph mode of TensorFlow.  It is the default mode of TensorFlow 2.  Local Mode and Automatic Model Tuning also are demonstrated. **PREREQUISITES:**  From the *tf-eager-script-mode* directory, upload ONLY the Jupyter notebook `tf-boston-housing.ipynb`.  
 
 
+- **Bring Your Own (BYO) resources:**  
+
+  - [**lightGBM BYO**](lightgbm-byo): In this repository, most samples use Amazon SageMaker prebuilt framework containers for TensorFlow and other frameworks.  For this example, however, we'll show how to BYO container to create a Script Mode-style experience similar to a prebuilt SageMaker framework container, using lightGBM, a popular gradient boosting framework.  **PREREQUISITES:**  From the *lightgbm-byo* directory, upload the Jupyter notebook `lightgbm-byo.ipynb`.
+
+  - [**Deploy Pretrained Models**](deploy-pretrained-model):  SageMaker's prebuilt PyTorch container is used to demonstrate how you can quickly take a pretrained or locally trained model and deploy them as SageMaker hosted API endpoints. There are examples for both OpenAI's GPT-2 and BERT. **PREREQUISITES:**  From the *deploy-pretrained-model* directory, upload the entire BERT or GPT2 folder's contents, depending on which model you select. Run either `Deploy_BERT.pynb` or `Deploy_GPT2.ipynb`.  
+
+
 - **Miscellaneous resources:**  
 
   - [**K-means clustering**](k-means-clustering): Most of the samples in this repository involve supervised learning tasks in Amazon SageMaker Script Mode.  For this example, by contrast, we'll undertake an unsupervised learning task, and do so with the Amazon SageMaker K-means built-in algorithm rather than Script Mode.  **PREREQUISITES:**  From the *k-means-clustering* directory, upload the Jupyter notebook `k-means-clustering.ipynb`.
 
-  - [**lightGBM BYO**](lightgbm-byo): In this repository, most samples use Amazon SageMaker prebuilt framework containers for TensorFlow and other frameworks.  For this example, however, we'll show how to BYO container similar to a prebuilt SageMaker framework container, using lightGBM, a popular gradient boosting framework.  **PREREQUISITES:**  From the *lightgbm-byo* directory, upload the Jupyter notebook `lightgbm-byo.ipynb`.
-
   - [**R in SageMaker Processing**](r-in-sagemaker-processing): In this example, R is used to perform some operations on a dataset and generate a plot within SageMaker Processing.  The job results including the plot image are retrieved and displayed, demonstrating how R can be easily used within a SageMaker workflow. **PREREQUISITES:**  From the *r-in-sagemaker-processing* directory, upload the Jupyter notebook `r-in-sagemaker_processing.ipynb`.
 
-  - [**Deploy Pretrained Models**](deploy-pretrained-model):  SageMaker's prebuilt PyTorch container is used to demonstrate how you can quickly take a pretrained or locally trained model and deploy them as SageMaker hosted API endpoints. There are examples for both OpenAI's GPT-2 and BERT. **PREREQUISITES:**  From the *deploy-pretrained-model* directory, upload the entire BERT or GPT2 folder's contents, depending on which model you select. Run either `Deploy_BERT.pynb` or `Deploy_GPT2.ipynb`.  
-
+  
 ## License
 
 The contents of this repository are licensed under the Apache 2.0 License except where otherwise noted.
