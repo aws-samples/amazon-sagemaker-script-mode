@@ -2,9 +2,9 @@
 
 This repository contains examples and related resources regarding Amazon SageMaker Script Mode and SageMaker Processing. With Script Mode, you can use training scripts similar to those you would use outside SageMaker with SageMaker's prebuilt containers for various frameworks such TensorFlow, PyTorch, and Apache MXNet.  Similarly, in SageMaker Processing, you can supply ordinary data preprocessing scripts for almost any language or technology you wish to use, such as the R programming language.  
 
-Currently this repository has resources for **TensorFlow**, **Bring Your Own** (BYO models and for a Script Mode-style experience with your own containers), and **Miscellaneous** (Script Mode-style experience for SageMaker Processing etc.). There also is an **Older Resources** section with examples of older framework versions.  
+Currently this repository has resources for **TensorFlow**, **Bring Your Own** (BYO models, plus Script Mode-style experience with your own containers), and **Miscellaneous** (Script Mode-style experience for SageMaker Processing etc.). There also is an **Older Resources** section with examples of older framework versions.  
 
-For those new to SageMaker, there is a set of 2-hour workshops covering the basics at https://github.com/awslabs/amazon-sagemaker-workshop.
+For those new to SageMaker, there is a set of 2-hour workshops covering the basics at [**Amazon SageMaker Workshops**](https://github.com/awslabs/amazon-sagemaker-workshop).
 
 - **TensorFlow Resources:**  
 
@@ -35,7 +35,7 @@ For those new to SageMaker, there is a set of 2-hour workshops covering the basi
 
 - **Older Resources:**  
 
-  - [**TensorFlow Distributed Training Options**](tf-distribution-options): **NOTE**:  Besides the options listed here for TensorFlow 1.x, there are additional options for TensorFlow 2, including (1) built-in [**SageMaker Distributed Training**](https://aws.amazon.com/sagemaker/distributed-training/) for both data and model parallelism, and native distribution strategies such as MirroredStrategy as demonstrated in the **TensorFlow 2 Sentiment Analysis** example above. This TensorFlow 1.x example demonstrates two other distributed training options for SageMaker's Script Mode:  (1) parameter servers, and (2) Horovod. **PREREQUISITES:**  From the *tf-distribution-options* directory, upload ONLY the Jupyter notebook `tf-distributed-training.ipynb`.
+  - [**TensorFlow Distributed Training Options**](tf-distribution-options): **NOTE**:  Besides the options listed here for TensorFlow 1.x, there are additional options for TensorFlow 2, including [A] built-in [**SageMaker Distributed Training**](https://aws.amazon.com/sagemaker/distributed-training/) for both data and model parallelism, and [B] native distribution strategies such as MirroredStrategy as demonstrated in the **TensorFlow 2 Sentiment Analysis** example above. This TensorFlow 1.x example demonstrates two other distributed training options for SageMaker's Script Mode:  (1) parameter servers, and (2) Horovod. **PREREQUISITES:**  From the *tf-distribution-options* directory, upload ONLY the Jupyter notebook `tf-distributed-training.ipynb`.
 
   - [**TensorFlow Eager Execution**](tf-eager-script-mode):  **NOTE**:  This TensorFlow 1.x example has been superseded by the **TensorFlow 2 Workflow** example above.  This example shows how to use Script Mode with Eager Execution mode in TensorFlow 1.x, a more intuitive and dynamic alternative to the original graph mode of TensorFlow.  It is the default mode of TensorFlow 2.  Local Mode and Automatic Model Tuning also are demonstrated. **PREREQUISITES:**  From the *tf-eager-script-mode* directory, upload ONLY the Jupyter notebook `tf-boston-housing.ipynb`.  
 
