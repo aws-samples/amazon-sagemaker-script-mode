@@ -49,6 +49,8 @@ if __name__ == "__main__":
         
     args, _ = parse_args()
     
+    print('Training data location: {}'.format(args.train))
+    print('Test data location: {}'.format(args.test))
     x_train, y_train = get_train_data(args.train)
     x_test, y_test = get_test_data(args.test)
     
@@ -73,5 +75,4 @@ if __name__ == "__main__":
         
         # save model
         model.save(args.model_dir + '/1')
-        
         
