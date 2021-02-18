@@ -36,7 +36,7 @@ def save_history(path, history):
     # transform float values that aren't json-serializable
     for key in list(history.history.keys()):
         if type(history.history[key]) == np.ndarray:
-            history_for_json[key] == history.history[key].tolist()
+            history_for_json[key] = history.history[key].tolist()
         elif type(history.history[key]) == list:
            if  type(history.history[key][0]) == np.float32 or type(history.history[key][0]) == np.float64:
                history_for_json[key] = list(map(float, history.history[key]))
