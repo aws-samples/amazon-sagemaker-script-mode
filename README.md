@@ -12,9 +12,9 @@ For those new to SageMaker, there is a set of 2-hour workshops covering the basi
 
   - [**TensorFlow 2 Workflow with SageMaker Pipelines**](tf-2-workflow-smpipelines):  This example shows a complete workflow for TensorFlow 2, starting with prototyping followed by automation with [Amazon SageMaker Pipelines](https://aws.amazon.com/sagemaker/pipelines).  To begin, SageMaker Processing is used to transform the dataset.  Next, Local Mode training and Local Mode endpoints are demonstrated for prototyping training and inference code, respectively.  Automatic Model Tuning is used to automate the hyperparameter tuning process.  Finally, the workflow is automated with SageMaker Pipelines.  **PREREQUISITES:** If you wish to run the Local Mode sections of the example, use a SageMaker Notebook Instance rather than SageMaker Studio.  From the *tf-2-workflow-smpipelines* directory, upload ONLY the Jupyter notebook `tf-2-workflow-smpipelines.ipynb`.  
   
+  - [**TensorFlow 2 with SageMaker Distributed Data Parallel Library**](tf-2-data-parallelism):  This example utilizes SageMaker's distributed data parallel library, which extends SageMaker’s training capabilities on deep learning models with near-linear scaling efficiency, achieving fast time-to-train with minimal code changes.  It is applied to a TensorFlow 2 image classification model trained on the CIFAR10 dataset.  **PREREQUISITES:**  Be sure your AWS account limits allow usage of two ml.p3.16xlarge instances.  
   
-
-
+  
 - **Bring Your Own (BYO) Resources:**  
 
   - [**lightGBM BYO**](lightgbm-byo): In this repository, most samples use Amazon SageMaker prebuilt framework containers for TensorFlow and other frameworks.  For this example, however, we'll show how to BYO container to create a Script Mode-style experience similar to a prebuilt SageMaker framework container, using lightGBM, a popular gradient boosting framework.  **PREREQUISITES:**  From the *lightgbm-byo* directory, upload the Jupyter notebook `lightgbm-byo.ipynb`.
