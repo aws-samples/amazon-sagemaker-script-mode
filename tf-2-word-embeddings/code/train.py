@@ -76,5 +76,5 @@ if __name__ == "__main__":
               validation_data=(x_val, y_val)) 
     
     # create a TensorFlow SavedModel for deployment to a SageMaker endpoint with TensorFlow Serving
-    tf.contrib.saved_model.save_keras_model(model, args.model_dir)
+    model.save(args.model_dir + '/1')
 
