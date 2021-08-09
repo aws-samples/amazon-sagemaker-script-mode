@@ -6,6 +6,10 @@ Currently this repository has resources for **TensorFlow**, **Bring Your Own** (
 
 For those new to SageMaker, there is a set of 2-hour workshops covering the basics at [**Amazon SageMaker Workshops**](https://github.com/awslabs/amazon-sagemaker-workshop).
 
+- **Hugging Face Resources:**
+
+  - [**Hugging Face automated model training and deployment in SageMaker Pipelines**](hugging-face-lambda-step):  This example uses the SageMaker prebuilt Hugging Face (PyTorch) container in an end-to-end demo with model training and deployment within SageMaker Pipelines.  A lightweight model deployment is performed by a SageMaker Pipeline Lambda step.  **PREREQUISITES:**  either clone this repository, or from the *hugging-face-lambda-step* directory, upload all files and folders; then run the notebook `sm-pipelines-hugging-face-lambda-step.ipynb`.
+
 - **TensorFlow Resources:**  
 
   - [**TensorFlow 2 Sentiment Analysis**](tf-sentiment-script-mode):  SageMaker's prebuilt TensorFlow 2 container is used in this example to train a custom sentiment analysis model. Distributed hosted training in SageMaker is performed on a multi-GPU instance, using the native TensorFlow `MirroredStrategy`.  Additionally, SageMaker Batch Transform is used for asynchronous, large scale inference/batch scoring. **PREREQUISITES:**  From the *tf-sentiment-script-mode* directory, upload ONLY the Jupyter notebook `sentiment-analysis.ipynb`.  
