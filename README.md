@@ -1,8 +1,8 @@
 ## Amazon SageMaker Script Mode Examples
 
-This repository contains examples and related resources regarding Amazon SageMaker Script Mode and SageMaker Processing. With Script Mode, you can use training scripts similar to those you would use outside SageMaker with SageMaker's prebuilt containers for various frameworks such TensorFlow, PyTorch, and Apache MXNet.  Similarly, in SageMaker Processing, you can supply ordinary data preprocessing scripts for almost any language or technology you wish to use, such as the R programming language.  
+This repository contains examples and related resources regarding Amazon SageMaker Script Mode and SageMaker Processing. With Script Mode, you can use training scripts similar to those you would use outside SageMaker with SageMaker's prebuilt containers for various frameworks such TensorFlow and PyTorch.  Similarly, in SageMaker Processing, you can supply ordinary data preprocessing scripts for almost any language or technology you wish to use, such as the R programming language.  
 
-Currently this repository has resources for **TensorFlow**, **Bring Your Own** (BYO models, plus Script Mode-style experience with your own containers), and **Miscellaneous** (Script Mode-style experience for SageMaker Processing etc.). There also is an **Older Resources** section with examples of older framework versions.  
+Currently this repository has resources for **Hugging Face**, **TensorFlow**, **Bring Your Own** (BYO models, plus Script Mode-style experience with your own containers), and **Miscellaneous** (Script Mode-style experience for SageMaker Processing etc.). There also is an **Older Resources** section with examples of older framework versions.  
 
 For those new to SageMaker, there is a set of 2-hour workshops covering the basics at [**Amazon SageMaker Workshops**](https://github.com/awslabs/amazon-sagemaker-workshop).
 
