@@ -25,6 +25,8 @@ For those new to SageMaker, there is a set of 2-hour workshops covering the basi
    - [**R in SageMaker Processing**](r-in-sagemaker-processing): SageMaker Script Mode is directed toward making the model training process easier.  However, an experience similar to Script Mode also is available for SageMaker Processing:  you can bring in your data processing scripts and easily run them on managed infrastructure either with BYO containers or prebuilt containers for frameworks such as Spark and Scikit-learn.  In this example, R is used to perform operations on a dataset and generate a plot within SageMaker Processing.  The job results including the plot image are retrieved and displayed, demonstrating how R can be easily used within a SageMaker workflow. **PREREQUISITES:**  From the *r-in-sagemaker-processing* directory, upload the Jupyter notebook `r-in-sagemaker_processing.ipynb`.
    
    - [**R Complete Workflow**](r-workflow):  This example shows a complete workflow for R, starting with prototyping and moving to model tuning and inference, followed by automation with [Amazon SageMaker Pipelines](https://aws.amazon.com/sagemaker/pipelines).  **PREREQUISITES:**  Use a R kernel; and from the *r-workflow* directory, upload the Jupyter notebook `r-workflow.ipynb`.
+   
+   - [**R Churn Example**](r-churn):  Often it is helpful to benchmark possible model quality using AutoML, even if you intend to manage training of your own custom model later using Script Mode.  This example shows how to use R to access SageMaker Autopilot for this purpose. **PREREQUISITES:**  Use a R kernel; and from the *r-churn* directory, upload the Jupyter notebook `r-churn.ipynb`.
   
 - **Bring Your Own (BYO) Resources:**  
 
