@@ -2,7 +2,7 @@
 
 This repository contains examples and related resources regarding Amazon SageMaker Script Mode and SageMaker Processing. With Script Mode, you can use training scripts similar to those you would use outside SageMaker with SageMaker's prebuilt containers for various frameworks such TensorFlow and PyTorch.  Similarly, in SageMaker Processing, you can supply ordinary data preprocessing scripts for almost any language or technology you wish to use, such as the R programming language.  
 
-Currently this repository has resources for **Hugging Face**, **TensorFlow**, **Bring Your Own** (BYO models, plus Script Mode-style experience with your own containers), and **Miscellaneous** (Script Mode-style experience for SageMaker Processing etc.). There also is an **Older Resources** section with examples of older framework versions.  
+Currently this repository has resources for **Hugging Face**, **TensorFlow**, **R**, **Bring Your Own** (BYO models, plus Script Mode-style experience with your own containers), and **Miscellaneous** (Script Mode-style experience for SageMaker Processing etc.). There also is an **Older Resources** section with examples of older framework versions.  
 
 For those new to SageMaker, there is a set of 2-hour workshops covering the basics at [**Amazon SageMaker Workshops**](https://github.com/awslabs/amazon-sagemaker-workshop).
 
@@ -20,6 +20,11 @@ For those new to SageMaker, there is a set of 2-hour workshops covering the basi
   
   - [**TensorFlow 2 Loading Pretrained Embeddings for Classification Tasks**](tf-2-word-embeddings): In this example, TensorFlow 2 is used with Script Mode for a text classification task. An important aspect of the example is showing how to load pretrained embeddings in Script Mode. This illustrates one aspect of the flexibility of SageMaker Script Mode for setting up training jobs: in addition to data, you can pass in arbitrary files needed for training (not just embeddings).  **PREREQUISITES:**  (1) be sure to upload all files in the *tf-2-word-embeddings* directory (including subdirectory *code*) to the directory where you will run the related Jupyter notebook.
   
+- **R Resources:** 
+
+   - [**R in SageMaker Processing**](r-in-sagemaker-processing): SageMaker Script Mode is directed toward making the model training process easier.  However, an experience similar to Script Mode also is available for SageMaker Processing:  you can bring in your data processing scripts and easily run them on managed infrastructure either with BYO containers or prebuilt containers for frameworks such as Spark and Scikit-learn.  In this example, R is used to perform operations on a dataset and generate a plot within SageMaker Processing.  The job results including the plot image are retrieved and displayed, demonstrating how R can be easily used within a SageMaker workflow. **PREREQUISITES:**  From the *r-in-sagemaker-processing* directory, upload the Jupyter notebook `r-in-sagemaker_processing.ipynb`.
+   
+   - [**R Complete Workflow**](r-workflow):  This example shows a complete workflow for R, starting with prototyping and moving to model tuning and inference, followed by automation with [Amazon SageMaker Pipelines](https://aws.amazon.com/sagemaker/pipelines).  **PREREQUISITES:**  Use a R kernel; and from the *r-workflow* directory, upload the Jupyter notebook `r-workflow.ipynb`.
   
 - **Bring Your Own (BYO) Resources:**  
 
@@ -29,8 +34,6 @@ For those new to SageMaker, there is a set of 2-hour workshops covering the basi
 
 
 - **Miscellaneous Resources:**  
-
-  - [**R in SageMaker Processing**](r-in-sagemaker-processing): SageMaker Script Mode is directed toward making the model training process easier.  However, an experience similar to Script Mode also is available for SageMaker Processing:  you can bring in your data processing scripts and easily run them on managed infrastructure either with BYO containers or prebuilt containers for frameworks such as Spark and Scikit-learn.  In this example, R is used to perform operations on a dataset and generate a plot within SageMaker Processing.  The job results including the plot image are retrieved and displayed, demonstrating how R can be easily used within a SageMaker workflow. **PREREQUISITES:**  From the *r-in-sagemaker-processing* directory, upload the Jupyter notebook `r-in-sagemaker_processing.ipynb`.
 
   - [**K-means clustering**](k-means-clustering): Most of the samples in this repository involve supervised learning tasks in Amazon SageMaker Script Mode.  For this example, by contrast, we'll undertake an unsupervised learning task, and do so with the Amazon SageMaker K-means built-in algorithm rather than Script Mode.  The SageMaker built-in algorithms were developed for large-scale training tasks and may offer a simpler user experience depending on the use case.  **PREREQUISITES:**  From the *k-means-clustering* directory, upload the Jupyter notebook `k-means-clustering.ipynb`.
 
