@@ -1,5 +1,0 @@
-matplotlib==3.3.3
-numpy==1.19.2
-sagemaker==2.23.2
-tensorflow==2.5.2
-s3fs
