@@ -2,7 +2,7 @@
 
 This repository contains examples and related resources regarding Amazon SageMaker Script Mode and SageMaker Processing. With Script Mode, you can use training scripts similar to those you would use outside SageMaker with SageMaker's prebuilt containers for various frameworks such TensorFlow and PyTorch.  Similarly, in SageMaker Processing, you can supply ordinary data preprocessing scripts for almost any language or technology you wish to use, such as the R programming language.  
 
-Currently this repository has resources for **Hugging Face**, **TensorFlow**, **R**, **Bring Your Own** (BYO models, plus Script Mode-style experience with your own containers), and **Miscellaneous** (Script Mode-style experience for SageMaker Processing etc.). There also is an **Older Resources** section with examples of older framework versions.  
+Currently this repository has resources for **Hugging Face**, **TensorFlow**, **R**, **Bring Your Own** (BYO models, plus Script Mode-style experience with your own containers), and **Miscellaneous** (Script Mode-style experience for SageMaker Processing etc.). There also is an **Older Resources** section with examples of older framework versions; these examples are for reference only, and are not maintained.  
 
 For those new to SageMaker, there is a set of 2-hour workshops covering the basics at [**Amazon SageMaker Workshops**](https://github.com/awslabs/amazon-sagemaker-workshop).
 
@@ -38,7 +38,7 @@ For those new to SageMaker, there is a set of 2-hour workshops covering the basi
   - [**K-means clustering**](k-means-clustering): Most of the samples in this repository involve supervised learning tasks in Amazon SageMaker Script Mode.  For this example, by contrast, we'll undertake an unsupervised learning task, and do so with the Amazon SageMaker K-means built-in algorithm rather than Script Mode.  The SageMaker built-in algorithms were developed for large-scale training tasks and may offer a simpler user experience depending on the use case.  **PREREQUISITES:**  From the *k-means-clustering* directory, upload the Jupyter notebook `k-means-clustering.ipynb`.
 
 
-- **Older Resources:**  
+- **Older Resources:**  ***(reference only, not maintained)***  
 
   - [**TensorFlow 2 Workflow with the AWS Step Functions Data Science SDK**](tf-2-workflow):  **NOTE**:  This example has been superseded by the **TensorFlow 2 Workflow with SageMaker Pipelines** example above. This example shows a complete workflow for TensorFlow 2 with automation by the AWS Step Functions Data Science SDK, an older alternative to [Amazon SageMaker Pipelines](https://aws.amazon.com/sagemaker/pipelines).  To begin, SageMaker Processing is used to transform the dataset.  Next, Local Mode training and Local Mode endpoints are demonstrated for prototyping training and inference code, respectively.  Automatic Model Tuning is used to automate the hyperparameter tuning process.  **PREREQUISITES:**  From the *tf-2-workflow* directory, upload ONLY the Jupyter notebook `tf-2-workflow.ipynb`.  
   
